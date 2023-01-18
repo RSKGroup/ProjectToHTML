@@ -9,6 +9,13 @@ else
 	exit 1
 fi
 
+if [ $# -eq 2 ]; then
+	if [ -e "$1" ] && [ -e "$2" ]; then
+		projectToHTML="$1"
+		destinationFolder="$2"
+	fi
+fi
+
 while [ -z "$projectToHTML" ]; do
 	projectToHTML=$(/usr/bin/osascript <<EOF
 try 
